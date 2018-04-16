@@ -12,7 +12,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3B4473D720853515002D88E9 /* WithoutMyGlassesClock.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WithoutMyGlassesClock.saver; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B4473D720853515002D88E9 /* Without My Glasses Clock.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Without My Glasses Clock.saver"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4473DA20853515002D88E9 /* WithoutMyGlassesClockView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WithoutMyGlassesClockView.h; sourceTree = "<group>"; };
 		3B4473DC20853515002D88E9 /* WithoutMyGlassesClockView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WithoutMyGlassesClockView.m; sourceTree = "<group>"; };
 		3B4473DE20853515002D88E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -40,7 +40,7 @@
 		3B4473D820853515002D88E9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3B4473D720853515002D88E9 /* WithoutMyGlassesClock.saver */,
+				3B4473D720853515002D88E9 /* Without My Glasses Clock.saver */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,7 +84,7 @@
 			);
 			name = WithoutMyGlassesClock;
 			productName = WithoutMyGlassesClock;
-			productReference = 3B4473D720853515002D88E9 /* WithoutMyGlassesClock.saver */;
+			productReference = 3B4473D720853515002D88E9 /* Without My Glasses Clock.saver */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -252,7 +252,7 @@
 				INFOPLIST_FILE = WithoutMyGlassesClock/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codeforanyone.WithoutMyGlassesClock;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Without My Glasses Clock";
 				WRAPPER_EXTENSION = saver;
 			};
 			name = Debug;
@@ -265,7 +265,7 @@
 				INFOPLIST_FILE = WithoutMyGlassesClock/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codeforanyone.WithoutMyGlassesClock;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Without My Glasses Clock";
 				WRAPPER_EXTENSION = saver;
 			};
 			name = Release;
