@@ -12,6 +12,11 @@ your own risk.
 
 ## Background
 
+Need a clock you can read from bed without your glasses?  
+This might do the trick!
+
+![red clock with large hour and minute and small seconds](preview.png)
+
 After many nights sitting up with my newborn, who was
 nursing roughly every two hours, I found the hours
 started to blur together. I was keeping the room fairly
