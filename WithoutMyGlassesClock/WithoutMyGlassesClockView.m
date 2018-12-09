@@ -10,12 +10,19 @@
 
 @implementation WithoutMyGlassesClockView
 
+NSDateFormatter *hmformatter;
+NSDateFormatter *ssformatter;
+
 - (instancetype)initWithFrame:(NSRect)frame isPreview:(BOOL)isPreview
 {
     self = [super initWithFrame:frame isPreview:isPreview];
     if (self) {
-        [self setAnimationTimeInterval:1/30.0];
+        [self setAnimationTimeInterval:1/5.0];
     }
+    hmformatter = [[NSDateFormatter alloc] init];
+    [hmformatter setDateFormat:@"h:mm"];
+    ssformatter = [[NSDateFormatter alloc] init];
+    [ssformatter setDateFormat:@":ss"];
     return self;
 }
 
@@ -33,22 +40,9 @@
 // to the bug: https://github.com/lionheart/openradar-mirror/issues/20659
 - (void)drawRect:(NSRect)rect
 {
-    // How big of a screen are we working with?
-    NSSize size = [self bounds].size;
-    NSRect screenrect;
-    screenrect.size = NSMakeSize(size.width, size.height);
-    
-    // Get and format the current time
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"h:mm"];
-    NSDate *currentDate = [NSDate date];
-    NSString *dateString = [formatter stringFromDate:currentDate];
-    
     // Draw a rectangle background to clear any prior drawing
-    NSRect bgrect;
-    bgrect.size = NSMakeSize(size.width, size.height);
-    bgrect.origin = CGPointMake(0, 0);
-    NSBezierPath *path = [NSBezierPath bezierPathWithRect:bgrect];
+    NSSize size = [self bounds].size;
+    NSBezierPath *path = [NSBezierPath bezierPathWithRect:rect];
     NSColor *color = [NSColor colorWithCalibratedRed:0.0
                                                green:0.0
                                                 blue:0.0
@@ -56,24 +50,33 @@
     [color set];
     [path fill];
     
-    // Draw the time as text on the screen rectangle using the styling attributes specified in dict
-    float largestPointSize = calculatePointSizeToFillScreen(self.bounds.size, size.height, size.width);
-    [dateString drawInRect:screenrect withAttributes:createFontStylingDictionary(largestPointSize)];
+    // Get and format the current time
+    NSString *dateString = [hmformatter stringFromDate:[NSDate date]];
+    NSString *secondsString = [ssformatter stringFromDate:[NSDate date]];
+
+    float largestPointSize = calculatePointSizeToFillScreen(self.bounds.size) * 0.9;
+    [dateString drawInRect:rect withAttributes:createFontStylingDictionary(largestPointSize)];
     
-    // if the above is slow or crashy, use this.
-    //[dateString drawInRect:screenrect withAttributes:createFontStylingDictionary(750)]; // was 750
+    // draw the seconds in a second separate line at a smaller font size. Origin 0,0 starts at bottom!
+    NSRect lowerHalfBounds;
+    lowerHalfBounds.size = NSMakeSize(size.width, size.height/3.0);
+    lowerHalfBounds.origin = CGPointMake(0, 0);
+    [secondsString drawInRect:lowerHalfBounds withAttributes:createFontStylingDictionary(largestPointSize*0.3)];
+
+    
 }
 
 // Style the clock text to fill the available space but not run over in either direction.
 static NSMutableDictionary * createFontStylingDictionary(float textsize) {
     
     // alpha 1.0 = solid, 0.0 = transparent.
-    NSColor *darkRedColor = [NSColor colorWithCalibratedRed:0.2 green:0.0 blue:0.0 alpha:1.0];
+    NSColor *darkRedColor = [NSColor colorWithCalibratedRed:0.7 green:0.0 blue:0.0 alpha:1.0];
     
     // TODO: Configurable font choice
     NSFont* font = [NSFont fontWithName:@"Times New Roman Bold" size:textsize];
     
     NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    style.lineBreakMode = NSLineBreakByWordWrapping;
     style.alignment = NSTextAlignmentCenter;
     NSMutableDictionary *myDictionary = [NSMutableDictionary dictionary];
     [myDictionary setObject:style  forKey:NSParagraphStyleAttributeName];
@@ -87,14 +90,14 @@ static NSMutableDictionary * createFontStylingDictionary(float textsize) {
 }
 
 
-static float calculatePointSizeToFillScreen(CGSize boundingSize, float screenHeight, float screenWidth) {
+static float calculatePointSizeToFillScreen(CGSize boundingSize) {
     CGRect labelRect;
     float priorPointSize = 0.0;
     float pointsize = 12.0;
     float margin = 20;
     
-    // Todo: Is there any method other than trial and error to figure out the right sizing?
-    while ( labelRect.size.height < (screenHeight - margin) && labelRect.size.width < (screenWidth - margin)) {
+    // Todo: Is there any method other than trial and error to figure out the right sizing? Math doesn't seem to do it.
+    while ( labelRect.size.height < (boundingSize.height - margin) && labelRect.size.width < (boundingSize.width - margin)) {
         priorPointSize = pointsize;
         labelRect = [@"12:59"
                      boundingRectWithSize:boundingSize
@@ -108,6 +111,7 @@ static float calculatePointSizeToFillScreen(CGSize boundingSize, float screenHei
 
 - (void)animateOneFrame
 {
+    [self setNeedsDisplay:YES];
 }
 - (BOOL)hasConfigureSheet
 {
