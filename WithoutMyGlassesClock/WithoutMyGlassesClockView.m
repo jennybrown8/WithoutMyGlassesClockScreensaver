@@ -119,11 +119,11 @@ static float calculatePointSizeToFillScreen(CGSize boundingSize) {
         return 1.0;
     }
     
-    float lowPointSize = 1.0;
-    float highPointSize = MAX(12.0, MAX(boundingSize.width, boundingSize.height));
+    NSInteger lowPointSize = 1;
+    NSInteger highPointSize = (NSInteger)floor(MAX(12.0, MAX(boundingSize.width, boundingSize.height)));
     NSMutableDictionary *measurementAttributes = [NSMutableDictionary dictionary];
     while (lowPointSize <= highPointSize) {
-        float pointsize = floor((lowPointSize + highPointSize) / 2.0);
+        NSInteger pointsize = (lowPointSize + highPointSize) / 2;
         NSFont* font = clockFont(pointsize);
         NSNumber *kerning = [NSNumber numberWithFloat:(-1.0 * 0.05 * pointsize)];
         [measurementAttributes setObject:font forKey:NSFontAttributeName];
@@ -132,9 +132,9 @@ static float calculatePointSizeToFillScreen(CGSize boundingSize) {
         labelRect = CGRectMake(0.0, 0.0, labelSize.width, labelSize.height);
         if (labelRect.size.width <= targetWidth && labelRect.size.height <= maxHeight) {
             priorPointSize = pointsize;
-            lowPointSize = pointsize + 1.0;
+            lowPointSize = pointsize + 1;
         } else {
-            highPointSize = pointsize - 1.0;
+            highPointSize = pointsize - 1;
         }
     }
     return MAX(priorPointSize, 1.0);
