@@ -78,13 +78,21 @@ NSDateFormatter *ssformatter;
 }
 
 // Style the clock text to fill the available space but not run over in either direction.
+static NSFont * clockFont(float textsize) {
+    NSFont* font = [NSFont fontWithName:@"Times New Roman Bold" size:textsize];
+    if (font == nil) {
+        font = [NSFont boldSystemFontOfSize:textsize];
+    }
+    return font;
+}
+
 static NSMutableDictionary * createFontStylingDictionary(float textsize) {
     
     // alpha 1.0 = solid, 0.0 = transparent.
     NSColor *darkRedColor = [NSColor colorWithSRGBRed:0.7 green:0.0 blue:0.0 alpha:1.0];
     
     // TODO: Configurable font choice
-    NSFont* font = [NSFont fontWithName:@"Times New Roman Bold" size:textsize];
+    NSFont* font = clockFont(textsize);
     
     NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
     style.lineBreakMode = NSLineBreakByWordWrapping;
@@ -116,7 +124,7 @@ static float calculatePointSizeToFillScreen(CGSize boundingSize) {
     NSMutableDictionary *measurementAttributes = [NSMutableDictionary dictionary];
     while (lowPointSize <= highPointSize) {
         float pointsize = floor((lowPointSize + highPointSize) / 2.0);
-        NSFont* font = [NSFont fontWithName:@"Times New Roman Bold" size:pointsize];
+        NSFont* font = clockFont(pointsize);
         NSNumber *kerning = [NSNumber numberWithFloat:(-1.0 * 0.05 * pointsize)];
         [measurementAttributes setObject:font forKey:NSFontAttributeName];
         [measurementAttributes setObject:kerning forKey:NSKernAttributeName];
