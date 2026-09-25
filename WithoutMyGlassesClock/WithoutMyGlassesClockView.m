@@ -121,7 +121,7 @@ static float calculatePointSizeToFillScreen(CGSize boundingSize) {
     
     NSInteger lowPointSize = 1;
     NSInteger highPointSize = (NSInteger)floor(MAX(12.0, MAX(boundingSize.width, boundingSize.height)));
-    NSMutableDictionary *measurementAttributes = [NSMutableDictionary dictionary];
+    NSMutableDictionary *measurementAttributes = [createFontStylingDictionary(1.0) mutableCopy];
     while (lowPointSize <= highPointSize) {
         NSInteger pointsize = (lowPointSize + highPointSize) / 2;
         NSFont* font = clockFont(pointsize);
