@@ -103,6 +103,7 @@ static float calculatePointSizeToFillScreen(CGSize boundingSize) {
     CGRect labelRect = CGRectZero;
     float priorPointSize = 0.0;
     float pointsize = 12.0;
+    float coarseStep = 10.0;
     float targetWidth = boundingSize.width * 0.7;
     float maxHeight = boundingSize.height * 0.6;
     
@@ -111,6 +112,17 @@ static float calculatePointSizeToFillScreen(CGSize boundingSize) {
     }
     
     // Todo: Is there any method other than trial and error to figure out the right sizing? Math doesn't seem to do it.
+    while (YES) {
+        NSSize labelSize = [@"12:59" sizeWithAttributes:createFontStylingDictionary(pointsize)];
+        labelRect = CGRectMake(0.0, 0.0, labelSize.width, labelSize.height);
+        if (labelRect.size.width > targetWidth || labelRect.size.height > maxHeight) {
+            break;
+        }
+        priorPointSize = pointsize;
+        pointsize += coarseStep;
+    }
+    
+    pointsize = priorPointSize + 1.0;
     while (YES) {
         NSSize labelSize = [@"12:59" sizeWithAttributes:createFontStylingDictionary(pointsize)];
         labelRect = CGRectMake(0.0, 0.0, labelSize.width, labelSize.height);
