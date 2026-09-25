@@ -41,7 +41,8 @@ NSDateFormatter *ssformatter;
 - (void)drawRect:(NSRect)rect
 {
     // Draw a rectangle background to clear any prior drawing
-    NSSize size = [self bounds].size;
+    NSRect bounds = self.bounds;
+    NSSize size = bounds.size;
     NSBezierPath *path = [NSBezierPath bezierPathWithRect:rect];
     NSColor *color = [NSColor colorWithSRGBRed:0.0
                                          green:0.0
@@ -51,29 +52,47 @@ NSDateFormatter *ssformatter;
     [path fill];
     
     // Get and format the current time
-    NSString *dateString = [hmformatter stringFromDate:[NSDate date]];
-    NSString *secondsString = [ssformatter stringFromDate:[NSDate date]];
+    NSDate *now = [NSDate date];
+    NSString *dateString = [hmformatter stringFromDate:now];
+    NSString *secondsString = [ssformatter stringFromDate:now];
 
-    float largestPointSize = calculatePointSizeToFillScreen(self.bounds.size) * 0.9;
-    [dateString drawInRect:rect withAttributes:createFontStylingDictionary(largestPointSize)];
+    float largestPointSize = calculatePointSizeToFillScreen(bounds.size);
+    NSDictionary *mainAttributes = createFontStylingDictionary(largestPointSize);
+    NSSize mainTextSize = [dateString sizeWithAttributes:mainAttributes];
+    NSPoint mainTextOrigin = NSMakePoint(NSMidX(bounds) - (mainTextSize.width / 2.0),
+                                         NSMidY(bounds) - (mainTextSize.height / 2.0));
+    [dateString drawAtPoint:mainTextOrigin withAttributes:mainAttributes];
     
     // draw the seconds in a second separate line at a smaller font size. Origin 0,0 starts at bottom!
-    NSRect lowerHalfBounds;
-    lowerHalfBounds.size = NSMakeSize(size.width, size.height/3.0);
-    lowerHalfBounds.origin = CGPointMake(0, 0);
-    [secondsString drawInRect:lowerHalfBounds withAttributes:createFontStylingDictionary(largestPointSize*0.3)];
+    float secondsPointSize = MAX(largestPointSize * 0.3, 1.0);
+    NSDictionary *secondsAttributes = createFontStylingDictionary(secondsPointSize);
+    NSSize secondsTextSize = [secondsString sizeWithAttributes:secondsAttributes];
+    CGFloat bottomMargin = MAX(4.0, size.height * 0.05);
+    NSFont *secondsFont = secondsAttributes[NSFontAttributeName];
+    CGFloat secondsDescenderPadding = MAX(secondsTextSize.height - secondsFont.ascender, 0.0);
+    NSPoint secondsOrigin = NSMakePoint(NSMidX(bounds) - (secondsTextSize.width / 2.0),
+                                        bottomMargin + secondsDescenderPadding);
+    [secondsString drawAtPoint:secondsOrigin withAttributes:secondsAttributes];
 
     
 }
 
 // Style the clock text to fill the available space but not run over in either direction.
+static NSFont * clockFont(float textsize) {
+    NSFont* font = [NSFont fontWithName:@"Times New Roman Bold" size:textsize];
+    if (font == nil) {
+        font = [NSFont boldSystemFontOfSize:textsize];
+    }
+    return font;
+}
+
 static NSMutableDictionary * createFontStylingDictionary(float textsize) {
     
     // alpha 1.0 = solid, 0.0 = transparent.
     NSColor *darkRedColor = [NSColor colorWithSRGBRed:0.7 green:0.0 blue:0.0 alpha:1.0];
     
     // TODO: Configurable font choice
-    NSFont* font = [NSFont fontWithName:@"Times New Roman Bold" size:textsize];
+    NSFont* font = clockFont(textsize);
     
     NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
     style.lineBreakMode = NSLineBreakByWordWrapping;
@@ -91,22 +110,34 @@ static NSMutableDictionary * createFontStylingDictionary(float textsize) {
 
 
 static float calculatePointSizeToFillScreen(CGSize boundingSize) {
-    CGRect labelRect;
+    CGRect labelRect = CGRectZero;
     float priorPointSize = 0.0;
-    float pointsize = 12.0;
-    float margin = 20;
+    float targetWidth = boundingSize.width * 0.7;
+    float maxHeight = boundingSize.height * 0.6;
     
-    // Todo: Is there any method other than trial and error to figure out the right sizing? Math doesn't seem to do it.
-    while ( labelRect.size.height < (boundingSize.height - margin) && labelRect.size.width < (boundingSize.width - margin)) {
-        priorPointSize = pointsize;
-        labelRect = [@"12:59"
-                     boundingRectWithSize:boundingSize
-                     options:NSStringDrawingUsesFontLeading
-                     attributes:createFontStylingDictionary(pointsize)
-                     context:nil];
-        pointsize += 10;
+    if (boundingSize.width <= 0.0 || boundingSize.height <= 0.0) {
+        return 1.0;
     }
-    return priorPointSize;
+    
+    NSInteger lowPointSize = 1;
+    NSInteger highPointSize = (NSInteger)floor(MAX(12.0, MAX(boundingSize.width, boundingSize.height)));
+    NSMutableDictionary *measurementAttributes = [createFontStylingDictionary(1.0) mutableCopy];
+    while (lowPointSize <= highPointSize) {
+        NSInteger pointsize = (lowPointSize + highPointSize) / 2;
+        NSFont* font = clockFont(pointsize);
+        NSNumber *kerning = [NSNumber numberWithFloat:(-1.0 * 0.05 * pointsize)];
+        [measurementAttributes setObject:font forKey:NSFontAttributeName];
+        [measurementAttributes setObject:kerning forKey:NSKernAttributeName];
+        NSSize labelSize = [@"12:59" sizeWithAttributes:measurementAttributes];
+        labelRect = CGRectMake(0.0, 0.0, labelSize.width, labelSize.height);
+        if (labelRect.size.width <= targetWidth && labelRect.size.height <= maxHeight) {
+            priorPointSize = pointsize;
+            lowPointSize = pointsize + 1;
+        } else {
+            highPointSize = pointsize - 1;
+        }
+    }
+    return MAX(priorPointSize, 1.0);
 }
 
 - (void)animateOneFrame
