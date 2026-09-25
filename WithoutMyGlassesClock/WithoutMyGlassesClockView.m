@@ -68,8 +68,10 @@ NSDateFormatter *ssformatter;
     NSDictionary *secondsAttributes = createFontStylingDictionary(secondsPointSize);
     NSSize secondsTextSize = [secondsString sizeWithAttributes:secondsAttributes];
     CGFloat bottomMargin = MAX(4.0, size.height * 0.05);
+    NSFont *secondsFont = secondsAttributes[NSFontAttributeName];
+    CGFloat secondsDescender = fabs(secondsFont.descender);
     NSPoint secondsOrigin = NSMakePoint(NSMidX(bounds) - (secondsTextSize.width / 2.0),
-                                        bottomMargin);
+                                        bottomMargin + secondsDescender);
     [secondsString drawAtPoint:secondsOrigin withAttributes:secondsAttributes];
 
     
