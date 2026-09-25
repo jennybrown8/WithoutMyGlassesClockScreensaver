@@ -43,10 +43,10 @@ NSDateFormatter *ssformatter;
     // Draw a rectangle background to clear any prior drawing
     NSSize size = [self bounds].size;
     NSBezierPath *path = [NSBezierPath bezierPathWithRect:rect];
-    NSColor *color = [NSColor colorWithCalibratedRed:0.0
-                                               green:0.0
-                                                blue:0.0
-                                               alpha:255.0];
+    NSColor *color = [NSColor colorWithSRGBRed:0.0
+                                         green:0.0
+                                          blue:0.0
+                                         alpha:1.0];
     [color set];
     [path fill];
     
@@ -70,7 +70,7 @@ NSDateFormatter *ssformatter;
 static NSMutableDictionary * createFontStylingDictionary(float textsize) {
     
     // alpha 1.0 = solid, 0.0 = transparent.
-    NSColor *darkRedColor = [NSColor colorWithCalibratedRed:0.7 green:0.0 blue:0.0 alpha:1.0];
+    NSColor *darkRedColor = [NSColor colorWithSRGBRed:0.7 green:0.0 blue:0.0 alpha:1.0];
     
     // TODO: Configurable font choice
     NSFont* font = [NSFont fontWithName:@"Times New Roman Bold" size:textsize];
