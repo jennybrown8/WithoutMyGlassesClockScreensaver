@@ -11,15 +11,62 @@
 		3B4473DD20853515002D88E9 /* WithoutMyGlassesClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4473DC20853515002D88E9 /* WithoutMyGlassesClockView.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3BE4572F3066C6FB001BB81D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B4473CE20853515002D88E9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3BE4571F3066C6F9001BB81D;
+			remoteInfo = ScreensaverPreviewApp;
+		};
+		3BE457393066C6FB001BB81D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B4473CE20853515002D88E9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3BE4571F3066C6F9001BB81D;
+			remoteInfo = ScreensaverPreviewApp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		3B4473D720853515002D88E9 /* Without My Glasses Clock.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Without My Glasses Clock.saver"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4473DA20853515002D88E9 /* WithoutMyGlassesClockView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WithoutMyGlassesClockView.h; sourceTree = "<group>"; };
 		3B4473DC20853515002D88E9 /* WithoutMyGlassesClockView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WithoutMyGlassesClockView.m; sourceTree = "<group>"; };
 		3B4473DE20853515002D88E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BE457203066C6F9001BB81D /* ScreensaverPreviewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreensaverPreviewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BE4572E3066C6FB001BB81D /* ScreensaverPreviewAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScreensaverPreviewAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BE457383066C6FB001BB81D /* ScreensaverPreviewAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScreensaverPreviewAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		3BE457213066C6F9001BB81D /* ScreensaverPreviewApp */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ScreensaverPreviewApp; sourceTree = "<group>"; };
+		3BE457313066C6FB001BB81D /* ScreensaverPreviewAppTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ScreensaverPreviewAppTests; sourceTree = "<group>"; };
+		3BE4573B3066C6FB001BB81D /* ScreensaverPreviewAppUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ScreensaverPreviewAppUITests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		3B4473D320853515002D88E9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BE4571D3066C6F9001BB81D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BE4572B3066C6FB001BB81D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BE457353066C6FB001BB81D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,6 +80,9 @@
 			isa = PBXGroup;
 			children = (
 				3B4473D920853515002D88E9 /* WithoutMyGlassesClock */,
+				3BE457213066C6F9001BB81D /* ScreensaverPreviewApp */,
+				3BE457313066C6FB001BB81D /* ScreensaverPreviewAppTests */,
+				3BE4573B3066C6FB001BB81D /* ScreensaverPreviewAppUITests */,
 				3B4473D820853515002D88E9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +91,9 @@
 			isa = PBXGroup;
 			children = (
 				3B4473D720853515002D88E9 /* Without My Glasses Clock.saver */,
+				3BE457203066C6F9001BB81D /* ScreensaverPreviewApp.app */,
+				3BE4572E3066C6FB001BB81D /* ScreensaverPreviewAppTests.xctest */,
+				3BE457383066C6FB001BB81D /* ScreensaverPreviewAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,18 +140,101 @@
 			productReference = 3B4473D720853515002D88E9 /* Without My Glasses Clock.saver */;
 			productType = "com.apple.product-type.bundle";
 		};
+		3BE4571F3066C6F9001BB81D /* ScreensaverPreviewApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BE457403066C6FB001BB81D /* Build configuration list for PBXNativeTarget "ScreensaverPreviewApp" */;
+			buildPhases = (
+				3BE4571C3066C6F9001BB81D /* Sources */,
+				3BE4571D3066C6F9001BB81D /* Frameworks */,
+				3BE4571E3066C6F9001BB81D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				3BE457213066C6F9001BB81D /* ScreensaverPreviewApp */,
+			);
+			name = ScreensaverPreviewApp;
+			packageProductDependencies = (
+			);
+			productName = ScreensaverPreviewApp;
+			productReference = 3BE457203066C6F9001BB81D /* ScreensaverPreviewApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3BE4572D3066C6FB001BB81D /* ScreensaverPreviewAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BE457433066C6FB001BB81D /* Build configuration list for PBXNativeTarget "ScreensaverPreviewAppTests" */;
+			buildPhases = (
+				3BE4572A3066C6FB001BB81D /* Sources */,
+				3BE4572B3066C6FB001BB81D /* Frameworks */,
+				3BE4572C3066C6FB001BB81D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3BE457303066C6FB001BB81D /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				3BE457313066C6FB001BB81D /* ScreensaverPreviewAppTests */,
+			);
+			name = ScreensaverPreviewAppTests;
+			packageProductDependencies = (
+			);
+			productName = ScreensaverPreviewAppTests;
+			productReference = 3BE4572E3066C6FB001BB81D /* ScreensaverPreviewAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3BE457373066C6FB001BB81D /* ScreensaverPreviewAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BE457463066C6FB001BB81D /* Build configuration list for PBXNativeTarget "ScreensaverPreviewAppUITests" */;
+			buildPhases = (
+				3BE457343066C6FB001BB81D /* Sources */,
+				3BE457353066C6FB001BB81D /* Frameworks */,
+				3BE457363066C6FB001BB81D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3BE4573A3066C6FB001BB81D /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				3BE4573B3066C6FB001BB81D /* ScreensaverPreviewAppUITests */,
+			);
+			name = ScreensaverPreviewAppUITests;
+			packageProductDependencies = (
+			);
+			productName = ScreensaverPreviewAppUITests;
+			productReference = 3BE457383066C6FB001BB81D /* ScreensaverPreviewAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		3B4473CE20853515002D88E9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 2660;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Jenny Brown";
 				TargetAttributes = {
 					3B4473D620853515002D88E9 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+					};
+					3BE4571F3066C6F9001BB81D = {
+						CreatedOnToolsVersion = 26.6;
+						ProvisioningStyle = Automatic;
+					};
+					3BE4572D3066C6FB001BB81D = {
+						CreatedOnToolsVersion = 26.6;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3BE4571F3066C6F9001BB81D;
+					};
+					3BE457373066C6FB001BB81D = {
+						CreatedOnToolsVersion = 26.6;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3BE4571F3066C6F9001BB81D;
 					};
 				};
 			};
@@ -115,12 +251,36 @@
 			projectRoot = "";
 			targets = (
 				3B4473D620853515002D88E9 /* WithoutMyGlassesClock */,
+				3BE4571F3066C6F9001BB81D /* ScreensaverPreviewApp */,
+				3BE4572D3066C6FB001BB81D /* ScreensaverPreviewAppTests */,
+				3BE457373066C6FB001BB81D /* ScreensaverPreviewAppUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3B4473D520853515002D88E9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BE4571E3066C6F9001BB81D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BE4572C3066C6FB001BB81D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BE457363066C6FB001BB81D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -138,7 +298,41 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3BE4571C3066C6F9001BB81D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BE4572A3066C6FB001BB81D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BE457343066C6FB001BB81D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3BE457303066C6FB001BB81D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3BE4571F3066C6F9001BB81D /* ScreensaverPreviewApp */;
+			targetProxy = 3BE4572F3066C6FB001BB81D /* PBXContainerItemProxy */;
+		};
+		3BE4573A3066C6FB001BB81D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3BE4571F3066C6F9001BB81D /* ScreensaverPreviewApp */;
+			targetProxy = 3BE457393066C6FB001BB81D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		3B4473DF20853515002D88E9 /* Debug */ = {
@@ -251,6 +445,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = WithoutMyGlassesClock/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.codeforanyone.WithoutMyGlassesClock;
 				PRODUCT_NAME = "Without My Glasses Clock";
 				WRAPPER_EXTENSION = saver;
@@ -264,9 +459,216 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = WithoutMyGlassesClock/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.codeforanyone.WithoutMyGlassesClock;
 				PRODUCT_NAME = "Without My Glasses Clock";
 				WRAPPER_EXTENSION = saver;
+			};
+			name = Release;
+		};
+		3BE457413066C6FB001BB81D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 Jenny Brown. All rights reserved.";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.5;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pathmaker.ScreensaverPreviewApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		3BE457423066C6FB001BB81D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 Jenny Brown. All rights reserved.";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.5;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pathmaker.ScreensaverPreviewApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		3BE457443066C6FB001BB81D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.5;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pathmaker.ScreensaverPreviewAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScreensaverPreviewApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ScreensaverPreviewApp";
+			};
+			name = Debug;
+		};
+		3BE457453066C6FB001BB81D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.5;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pathmaker.ScreensaverPreviewAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScreensaverPreviewApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ScreensaverPreviewApp";
+			};
+			name = Release;
+		};
+		3BE457473066C6FB001BB81D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.5;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pathmaker.ScreensaverPreviewAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = ScreensaverPreviewApp;
+			};
+			name = Debug;
+		};
+		3BE457483066C6FB001BB81D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.5;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pathmaker.ScreensaverPreviewAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = ScreensaverPreviewApp;
 			};
 			name = Release;
 		};
@@ -287,6 +689,33 @@
 			buildConfigurations = (
 				3B4473E220853515002D88E9 /* Debug */,
 				3B4473E320853515002D88E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BE457403066C6FB001BB81D /* Build configuration list for PBXNativeTarget "ScreensaverPreviewApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BE457413066C6FB001BB81D /* Debug */,
+				3BE457423066C6FB001BB81D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BE457433066C6FB001BB81D /* Build configuration list for PBXNativeTarget "ScreensaverPreviewAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BE457443066C6FB001BB81D /* Debug */,
+				3BE457453066C6FB001BB81D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BE457463066C6FB001BB81D /* Build configuration list for PBXNativeTarget "ScreensaverPreviewAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BE457473066C6FB001BB81D /* Debug */,
+				3BE457483066C6FB001BB81D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

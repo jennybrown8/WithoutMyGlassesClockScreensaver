@@ -2,8 +2,8 @@
 //  WithoutMyGlassesClockView.m
 //  WithoutMyGlassesClock
 //
-//  Created by Jenny Brown on 4/16/18.
-//  Copyright © 2018 Jenny Brown. All rights reserved.
+//  Created by Jenny Brown on 4/16/18, updated 8/25/2026.
+//  Copyright © 2018,2026 Jenny Brown. All rights reserved.
 //
 
 #import "WithoutMyGlassesClockView.h"
@@ -72,7 +72,8 @@ NSDateFormatter *ssformatter;
     CGFloat secondsDescenderPadding = MAX(secondsTextSize.height - secondsFont.ascender, 0.0);
     NSPoint secondsOrigin = NSMakePoint(NSMidX(bounds) - (secondsTextSize.width / 2.0),
                                         bottomMargin + secondsDescenderPadding);
-    [secondsString drawAtPoint:secondsOrigin withAttributes:secondsAttributes];
+    // kid didn't like the seconds counting :)
+    //  [secondsString drawAtPoint:secondsOrigin withAttributes:secondsAttributes];
 
     
 }
