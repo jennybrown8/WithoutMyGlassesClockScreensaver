@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3B4473DB20853515002D88E9 /* WithoutMyGlassesClockView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B4473DA20853515002D88E9 /* WithoutMyGlassesClockView.h */; };
 		3B4473DD20853515002D88E9 /* WithoutMyGlassesClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4473DC20853515002D88E9 /* WithoutMyGlassesClockView.m */; };
+		3BF0BA7D3066EF2D00411444 /* WithoutMyGlassesClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4473DC20853515002D88E9 /* WithoutMyGlassesClockView.m */; };
+		3BF0BA7E3066EF2D00411444 /* ScreenSaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BF0BA7F3066EF2D00411444 /* ScreenSaver.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,7 @@
 		3BE457203066C6F9001BB81D /* ScreensaverPreviewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreensaverPreviewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BE4572E3066C6FB001BB81D /* ScreensaverPreviewAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScreensaverPreviewAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BE457383066C6FB001BB81D /* ScreensaverPreviewAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScreensaverPreviewAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BF0BA7F3066EF2D00411444 /* ScreenSaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScreenSaver.framework; path = System/Library/Frameworks/ScreenSaver.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -56,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BF0BA7E3066EF2D00411444 /* ScreenSaver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BF0BA7D3066EF2D00411444 /* WithoutMyGlassesClockView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,6 +507,7 @@
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OBJC_BRIDGING_HEADER = "ScreensaverPreviewApp/ScreensaverPreviewApp-Bridging-Header.h";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -541,6 +547,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "ScreensaverPreviewApp/ScreensaverPreviewApp-Bridging-Header.h";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 			};

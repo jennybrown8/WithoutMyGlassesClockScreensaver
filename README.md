@@ -40,7 +40,19 @@ minimal animations and red text, so I wrote one.
 See the release/ directory for the compiled screensaver that you
 can download and install.
 
+## Standalone layout-testing app
+
+This repo also includes a macOS app target named `ScreensaverPreviewApp`.
+It is a layout-testing harness that hosts the same `WithoutMyGlassesClockView`
+used by the `.saver` target, so clock sizing/positioning can be tested in a
+normal app window without changing screensaver behavior.
+
+In Xcode:
+
+1. Open `WithoutMyGlassesClock.xcodeproj`.
+2. Select the `ScreensaverPreviewApp` scheme/target.
+3. Build and Run to launch the preview window.
+
 # License
 
 Download and use for free for personal use.  I maintain full copyright.
-
