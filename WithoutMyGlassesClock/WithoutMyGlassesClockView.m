@@ -113,9 +113,14 @@ static float calculatePointSizeToFillScreen(CGSize boundingSize) {
     
     float lowPointSize = 1.0;
     float highPointSize = MAX(12.0, MAX(boundingSize.width, boundingSize.height));
+    NSMutableDictionary *measurementAttributes = [NSMutableDictionary dictionary];
     while (lowPointSize <= highPointSize) {
         float pointsize = floor((lowPointSize + highPointSize) / 2.0);
-        NSSize labelSize = [@"12:59" sizeWithAttributes:createFontStylingDictionary(pointsize)];
+        NSFont* font = [NSFont fontWithName:@"Times New Roman Bold" size:pointsize];
+        NSNumber *kerning = [NSNumber numberWithFloat:(-1.0 * 0.05 * pointsize)];
+        [measurementAttributes setObject:font forKey:NSFontAttributeName];
+        [measurementAttributes setObject:kerning forKey:NSKernAttributeName];
+        NSSize labelSize = [@"12:59" sizeWithAttributes:measurementAttributes];
         labelRect = CGRectMake(0.0, 0.0, labelSize.width, labelSize.height);
         if (labelRect.size.width <= targetWidth && labelRect.size.height <= maxHeight) {
             priorPointSize = pointsize;
