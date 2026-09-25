@@ -102,8 +102,6 @@ static NSMutableDictionary * createFontStylingDictionary(float textsize) {
 static float calculatePointSizeToFillScreen(CGSize boundingSize) {
     CGRect labelRect = CGRectZero;
     float priorPointSize = 0.0;
-    float pointsize = 12.0;
-    float coarseStep = 10.0;
     float targetWidth = boundingSize.width * 0.7;
     float maxHeight = boundingSize.height * 0.6;
     
@@ -111,26 +109,18 @@ static float calculatePointSizeToFillScreen(CGSize boundingSize) {
         return 1.0;
     }
     
-    // Todo: Is there any method other than trial and error to figure out the right sizing? Math doesn't seem to do it.
-    while (YES) {
+    float lowPointSize = 1.0;
+    float highPointSize = MAX(12.0, MAX(boundingSize.width, boundingSize.height));
+    while (lowPointSize <= highPointSize) {
+        float pointsize = floor((lowPointSize + highPointSize) / 2.0);
         NSSize labelSize = [@"12:59" sizeWithAttributes:createFontStylingDictionary(pointsize)];
         labelRect = CGRectMake(0.0, 0.0, labelSize.width, labelSize.height);
-        if (labelRect.size.width > targetWidth || labelRect.size.height > maxHeight) {
-            break;
+        if (labelRect.size.width <= targetWidth && labelRect.size.height <= maxHeight) {
+            priorPointSize = pointsize;
+            lowPointSize = pointsize + 1.0;
+        } else {
+            highPointSize = pointsize - 1.0;
         }
-        priorPointSize = pointsize;
-        pointsize += coarseStep;
-    }
-    
-    pointsize = priorPointSize + 1.0;
-    while (YES) {
-        NSSize labelSize = [@"12:59" sizeWithAttributes:createFontStylingDictionary(pointsize)];
-        labelRect = CGRectMake(0.0, 0.0, labelSize.width, labelSize.height);
-        if (labelRect.size.width > targetWidth || labelRect.size.height > maxHeight) {
-            break;
-        }
-        priorPointSize = pointsize;
-        pointsize += 1.0;
     }
     return MAX(priorPointSize, 1.0);
 }
